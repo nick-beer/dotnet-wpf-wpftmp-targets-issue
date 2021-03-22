@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>wpf_tmp_test</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsWpfInnerTempProject Condition="$(MSBuildProjectName.EndsWith('_wpftmp'))">true</IsWpfInnerTempProject>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludePackageReferencesDuringMarkupCompilation Condition="'$(DemonstrateIssue)' == 'true'">true</IncludePackageReferencesDuringMarkupCompilation>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsWpfInnerTempProject)' != 'true'">
+    <PackageReference Include="my.package" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>build</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

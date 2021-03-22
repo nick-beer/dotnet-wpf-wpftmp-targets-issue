@@ -1,0 +1,5 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="WriteWarning" BeforeTargets="CoreCompile">
+    <Warning Text="This is a warning from the nuget package"/>
+  </Target>
+</Project>
